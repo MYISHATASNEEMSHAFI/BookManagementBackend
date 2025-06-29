@@ -19,7 +19,7 @@ public class BookServiceImpl implements BookService {
         // Save first to get auto-generated ID
         Book savedBook = bookRepository.save(book);
 
-        // Generate custom bookId: B-001, B-002, etc.
+        // Create a custom 3-digit padded ID like B-001, B-002 using the auto-generated ID
         String customBookId = String.format("B-%03d", savedBook.getId());
         savedBook.setBookId(customBookId);
 
